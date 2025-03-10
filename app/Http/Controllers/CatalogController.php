@@ -36,9 +36,16 @@ class CatalogController extends Controller
         return view('catalog.create');
     }
 
-    public function getEdit($id)
+	public function getEdit($id)
     {
-        return view('catalog.edit', array('id'=>$id));
+        // Obtener la película con el id proporcionado
+        $pelicula = Pelis::find($id);  // Utilizamos find para buscar la película por su ID
+
+
+        // Pasar el dato de la película a la vista
+        return view('catalog.edit', [
+            'pelicula' => $pelicula // Pasamos la película entera a la vista
+        ]);
     }
 }
 ?>
