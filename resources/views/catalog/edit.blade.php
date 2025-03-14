@@ -6,7 +6,9 @@
 </head>
 <body>
 <!-- resources/views/catalog/edit.blade.php -->
+@extends('layouts.master')
 
+@section('content')
 <h1>Editar Película</h1>
 
 @if ($pelicula)
@@ -20,15 +22,17 @@
         @method('PUT')
         
         <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" value="{{ $pelicula->title }}" required>
-        
+        <p>{{ $pelicula->title }}</p>
         <label for="anio">Año:</label>
-        <input type="number" name="anio" value="{{ $pelicula->year }}" required>
+        <p>{{ $pelicula->year }}</p>
         
-        <button type="submit">Actualizar</button>
+        
+        
     </form>
 @else
     <p>La película no se encuentra.</p>
 @endif
+@stop
+
 </body>
 </html>

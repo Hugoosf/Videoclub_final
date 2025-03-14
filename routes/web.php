@@ -63,9 +63,9 @@ Route::get('/catalog/edit/{id}', function ($id) {
 });
 */
 /* CONTROLADORES */
-
-Route::get('/', [HomeController::class, 'getHome']);
 Route::get('/catalog', [CatalogController::class, 'getIndex']);
-Route::get('/catalog/show/{id}', [CatalogController::class, 'getShow']);
+Route::post('/catalog', [CatalogController::class, 'store'])->name('catalog.store');
+Route::get('/', [HomeController::class, 'getHome']);
+Route::get('/catalog/show', [CatalogController::class, 'getShow'])->name('catalogshow');
 Route::get('/catalog/create', [CatalogController::class, 'getCreate']);
 Route::get('/catalog/edit/{id}', [CatalogController::class, 'getEdit']);
